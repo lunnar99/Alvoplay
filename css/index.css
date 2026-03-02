@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Aptos';
+    
 }
 
 @font-face {
@@ -23,25 +24,103 @@
     src: url('/fonts/Aptos-Italic.ttf') format('truetype');
 }
 
+/* ── Header ── */
 header {
-  background-image: linear-gradient(135deg, #ff6a00, #e10600);
-    padding: 20px;
-    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background-image: linear-gradient(135deg, #ff6a00, #e10600);
     border-radius: 0 0 30px 30px;
-    z-index: 100;
+    overflow: visible;
+    /* altura e padding controlados por JS */
 }
 
-header img {
+/* Camadas sobrepostas dentro do header */
+.header-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+/* ---- Layer expandida ---- */
+.header-expanded {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    /* opacity e pointer-events controlados por JS */
+}
+
+.header-expanded .logo {
     width: 80%;
     padding: 50px 0;
+    display: block;
 }
 
-.play-now button {
+/* ---- Layer compacta ---- */
+.header-compact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 100%; /* ocupa toda a altura do header */
+    opacity: 0;
+    pointer-events: none;
+}
+
+.logo-compact {
+    height: 36px;
+    width: auto;
+    display: block;
+}
+
+.hamburger-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    padding: 4px;
+}
+
+.hamburger-btn span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 3px;
+}
+
+.play-button-compact {
+    background-color: #ffffff;
+    color: #e10600;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Aptos-Bold', sans-serif;
+    white-space: nowrap;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+
+/* ---- Botão grande flutuante ---- */
+.play-now {
     position: absolute;
-    text-wrap: nowrap;
-    margin-top: -20px;
     left: 50%;
     transform: translateX(-50%);
+    /* bottom controlado por JS */
+    white-space: nowrap;
+    z-index: 201;
+    /* opacity e pointer-events controlados por JS */
+}
+
+.play-now .play-button {
     background-color: #ffffff;
     color: #e10600;
     border: none;
@@ -111,13 +190,12 @@ footer {
 
 /* ── Carousel ── */
 .grid-banner {
-    padding: 20px 16px;
+    padding: 10px 16px;
 }
 
 .banner {
     border-radius: 16px;
     overflow: hidden;
-    margin-top: 5%;
 }
 
 .carousel {
@@ -140,13 +218,20 @@ footer {
     align-items: center;
     justify-content: center;
     border-radius: 16px;
+    overflow: hidden;
 }
 
-.slide-placeholder {
-    color: #fff;
-    font-size: 28px;
-    font-family: 'Aptos-Bold', sans-serif;
-    opacity: 0.5;
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+}
+
+/* Carrossel fino */
+.carousel-slim .carousel-slide {
+    height: 100px;
 }
 
 /* dots */
@@ -173,4 +258,45 @@ footer {
 .dot.active {
     width: 28px;
     background-color: #ffffff;
+}
+
+.about-us {
+    margin: 0 18px;
+
+}
+
+.about-us p {
+    margin-bottom: 10px;
+}
+
+.about-us strong {
+    color: #e10600;
+    font-weight: 900;
+    font-family: 'Aptos-Black', sans-serif;
+}
+
+.img-about-us img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+    margin-bottom: 800px;
+}
+
+.arrow {
+    animation: pulinho 2s ease-in-out infinite;
+    font-size: 25px;
+}
+
+@keyframes pulinho {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }

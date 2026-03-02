@@ -1,7 +1,8 @@
-(function () {
-    const track = document.querySelector('.carousel-track');
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.dot');
+document.querySelectorAll('.carousel').forEach(function (carousel) {
+    const track = carousel.querySelector('.carousel-track');
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const dots = carousel.querySelectorAll('.dot');
+    const interval = parseInt(carousel.dataset.interval) || 5000;
     let current = 0;
     let autoplayTimer;
 
@@ -18,9 +19,7 @@
     }
 
     function startAutoplay() {
-        autoplayTimer = setInterval(() => {
-            goTo(current + 1);
-        }, 8000);
+        autoplayTimer = setInterval(() => goTo(current + 1), interval);
     }
 
     function resetAutoplay() {
@@ -28,7 +27,6 @@
         startAutoplay();
     }
 
-    // Dot click navigation
     dots.forEach((dot, i) => {
         dot.addEventListener('click', () => {
             goTo(i);
@@ -36,9 +34,7 @@
         });
     });
 
-    // Touch / swipe support
     let touchStartX = 0;
-    const carousel = document.querySelector('.carousel');
 
     carousel.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
@@ -53,4 +49,4 @@
     }, { passive: true });
 
     startAutoplay();
-})();
+});

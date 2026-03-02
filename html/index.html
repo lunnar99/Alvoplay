@@ -1,54 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Alvoplay - Ao vivo</title>
 </head>
 
 <body>
-    <header>
-        <div class="header">
+    <!-- HEADER -->
+    <header id="main-header">
+        <!-- Layer expandida: logo grande centralizada -->
+        <div class="header-layer header-expanded" id="header-expanded">
             <img src="/assets/LOGOTIPO2.png" alt="Radio Alvoplay" class="logo">
         </div>
-        <div class="play-now">
+        <!-- Layer compacta: hamburguer + logo pequena + botão -->
+        <div class="header-layer header-compact" id="header-compact">
+            <button class="hamburger-btn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <img src="/assets/LOGOTIPO2.png" alt="Radio Alvoplay" class="logo-compact">
+            <button class="play-button-compact">Ouvir agora</button>
+        </div>
+        <!-- Botão grande que aparece abaixo do header expandido -->
+        <div class="play-now" id="play-now-big">
             <button class="play-button">Ouvir agora</button>
         </div>
     </header>
+    <!-- FIM HEADER -->
 
-<div class="grid-banner">
-    <div class="banner">
-        <div class="carousel">
-            <div class="carousel-track">
-                <div class="carousel-slide active" style="background-color: #e10600;">
-                    <p class="slide-placeholder">Banner 1</p>
+    <div class="grid-banner">
+        <div class="banner">
+            <div class="carousel" data-interval="5000">
+                <div class="carousel-track">
+                    <div class="carousel-slide active">
+                        <img src="https://picsum.photos/seed/alvo1/800/200" alt="Banner 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://picsum.photos/seed/alvo2/800/200" alt="Banner 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://picsum.photos/seed/alvo3/800/200" alt="Banner 3">
+                    </div>
                 </div>
-                <div class="carousel-slide" style="background-color: #ff6a00;">
-                    <p class="slide-placeholder">Banner 2</p>
+                <div class="carousel-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
                 </div>
-                <div class="carousel-slide" style="background-color: #3a1a00;">
-                    <p class="slide-placeholder">Banner 3</p>
-                </div>
-            </div>
-            <div class="carousel-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
             </div>
         </div>
     </div>
-</div>
+
+    <div class="grid-banner">
+        <div class="banner">
+            <div class="carousel carousel-slim" data-interval="3000">
+                <div class="carousel-track">
+                    <div class="carousel-slide active">
+                        <img src="https://picsum.photos/seed/slim1/800/100" alt="Parceiro 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://picsum.photos/seed/slim2/800/100" alt="Parceiro 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://picsum.photos/seed/slim3/800/100" alt="Parceiro 3">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://picsum.photos/seed/slim4/800/100" alt="Parceiro 4">
+                    </div>
+                </div>
+                <div class="carousel-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SOBRE NÓS-->
+    <section class="about-us">
+        <p> <strong>AlvoPlay</strong> é a rádio oficial do <strong>Grupo Alvorada</strong>,
+            associado da rede Supermarket com o maior número
+            de lojas. Fundada em 2024, a rádio toca em todas as
+            unidades do grupo e tem sede no bairro de Arsenal,
+            em São Gonçalo, onde também é gravado o podcast <strong> No
+                Alvo do Varejo.</strong></p>
+        <div class="img-about-us">
+            <img src="/assets/equipe teste.png" alt="Parceiro 3">
+        </div>
+
+    </section>
+    <!-- FIM SOBRE NÓS-->
 
 
 
 
 
 
-
-
+ <!--RODAPÉ-->
     <footer>
+<div class="arrow" style="display: flex; justify-content: center;">
+    <i class="fa-solid fa-caret-up" style="color: rgb(255, 132, 0);"></i>
+</div>
         <div class="playing-now">
             <img src="/assets/Disco.png" alt="Disco Rodando" class="disco">
             <div class="song-info">
@@ -59,8 +116,10 @@
             </div>
         </div>
     </footer>
+     <!--FIM RODAPÉ-->
 
     <script src="/js/carousel.js"></script>
+    <script src="/js/header.js"></script>
 </body>
 
 </html>
